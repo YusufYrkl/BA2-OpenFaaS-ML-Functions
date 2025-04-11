@@ -1,0 +1,17 @@
+# logreg-inference.yml
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080 # Passe dies an deine Gateway-URL an!
+functions:
+  logreg-inference:
+    lang: python3-http-debian
+    handler: ./logreg-inference # Ordner der Funktion
+    image: yusufyrkl/logreg-inference:latest
+    # Optional: Setze hier später Ressourcenlimits für deine Tests
+    # limits:
+    #   memory: 256Mi
+    #   cpu: "0.5" # Halber CPU-Kern
+    # requests:
+    #   memory: 128Mi
+    #   cpu: "0.1"
