@@ -1,0 +1,21 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  yolov5s-inference:
+    lang: python3-http-debian
+    handler: ./yolov5s-inference # Pfad zum Ordner deiner YOLO-Funktion
+    image: yusufyrkl/yolov5s-inference:latest # Eindeutiger Image-Name!
+    build_args:
+      ADDITIONAL_PACKAGE: "libgl1-mesa-glx libglib2.0-0" # <--- HINZUGEFÜGT
+    environment:
+      read_timeout: "180s" # 3 Minuten
+      write_timeout: "180s" # 3 Minuten
+      exec_timeout: "300s" # 5 Minuten (YOLO-Modelle sind groß)
+    limits:
+      memory: "2Gi" # YOLOv5m kann speicherintensiv sein, starte mit 2-4Gi
+      cpu: "2" # Benötigt mehr CPU-Power (z.B. 2 Kerne)
+    requests:
+      memory: "1.5Gi" # Fordere eine gute Menge Speicher an
+      cpu: "1" # Fordere mindestens 1 CPU-Kern an

@@ -1,0 +1,20 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080 # Passe dies an deine Gateway-URL an!
+functions:
+  distilbert-finetuned-inference:
+    lang: python3-http-debian
+    handler: ./distilbert-finetuned-inference # Ordner der Funktion
+    image: yusufyrkl/distilbert-finetuned-inference:latest
+
+    environment:
+      read_timeout: "120s"
+      write_timeout: "120s"
+      exec_timeout: "120s" # Sehr wichtig für den Kaltstart!
+    limits:
+      memory: "2Gi"
+      cpu: "1.5"
+    requests:
+      memory: "1Gi"
+      cpu: "0.75"

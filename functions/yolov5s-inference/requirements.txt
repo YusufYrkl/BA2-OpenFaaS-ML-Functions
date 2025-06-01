@@ -1,0 +1,11 @@
+torch>=1.8.0 # Oder eine spezifischere Version, die mit deinem .pt-File kompatibel ist
+torchvision>=0.9.0
+numpy>=1.18.5
+Pillow>=7.1.2
+opencv-python-headless>=4.6.0 # Headless ist kleiner
+pandas>=1.1.4 # Wird von YOLOv5 utils für results.pandas() benötigt
+requests>=2.23.0 # Wird von YOLOv5 utils benötigt
+PyYAML>=5.3.1  # Für Konfigurationsdateien
+scipy>=1.4.1   # Für einige wissenschaftliche Berechnungen in utils
+matplotlib>=3.2.2 # Für Plotting-Funktionen, die utils importieren könnte
+tqdm>=4.64.0   # Für Fortschrittsbalken in utils

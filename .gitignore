@@ -1,166 +1,43 @@
-# .gitignore
-
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-# Usually these files are written by a python script from a template
-# before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# PEP 582; used by PDM, Flit and PDM
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
+# === Python virtual environment ===
 venv/
-ENV/
-env.bak/
-venv.bak/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+env/
 
-# Spyder project settings
-.spyderproject
-.spyproject
+# === Build / Deployment Artifacts ===
+build/
+.C/
+faas-cli-config.yml/config.yml   # lokale OpenFaaS-Config
+*.aws-sam/
+*.serverless/
 
-# Rope project settings
-.ropeproject
+# === Modelle / große Binärdateien ===
+functions/distilbert-finetuned-inference/mein_finetuned_modell/
+functions/logreg-inference/logistic_diabetes_model.joblib
+functions/logreg-inference/scaler.joblib
+functions/yolov5s-inference/yolov5_local_repo/
+functions/yolov5s-inference/yolov5_local_repo/yolov5s.pt
+logreg/logistic_diabetes_model.joblib
+logreg/scaler.joblib
+models/
 
-# mkdocs documentation
-/site
+# === Monitoring / Test-Artefakte ===
+monitoring/
+monitoring/**/bilder/
+monitoring/**/csv/
+client_metrics.json
+client_metric_diagramms.ipynb
+server_metric_diagramms.ipynb
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+# === Lokale Editor/IDE Settings ===
+.vscode/settings.json
+.vscode/launch.json
+*.suo
+*.user
 
-# Pyre type checker
-.pyre/
-
-# pytype static analyser
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
-# VS Code settings (optional, uncomment if you DONT want to share settings)
-# .vscode/
-
-# OS generated files
-.DS_Store
-._*
-Thumbs.db
-desktop.ini
-
-# Logs and databases
+# === Sonstige Verzeichnisse / Dateien ===
+ml-tests/Bilder für yolov5s/   # falls zu groß, sonst bei kleinen Bildern drinlassen
 *.log
-*.sql
-*.sqlite
-
-# Temporary files
-*.swp
-*~
-*.tmp
-
-# OpenFaaS build context within function folders
-# This prevents committing potentially large build contexts
-functions/*/build/
-
-# Load testing results (adjust patterns based on your tool)
-*.jtl
-*.html  # Be careful if you have other HTML files you WANT to commit
-load-testing/results/
-
-# Large model files (OPTIONAL - uncomment/adjust if models are large and NOT baked in)
-# models/distilbert_model/
-# models/yolov5s_model.pt
-# *.pt
-# *.h5
-# *.onnx
-# *.pb
-
-# Specific large dataset files (add patterns for your datasets if any)
-# training/data/large_dataset.csv
-
-# Secrets
-*.env
-credentials.*
-*.pem
-*.key
